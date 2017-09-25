@@ -1,0 +1,47 @@
+{
+    "name": "__API_NAME__",
+    "version": "1.0.0",
+    "description": "<some description>",
+    "main": "index.js",
+    "scripts": {
+        "clean": "rm -rf node_modules && rm -rf mochawesome-report && rm -rf .nyc_output && rm -rf coverage",
+        "start": "node worker",
+        "start:watch": "nodemon --exec npm run start",
+        "test": "NODE_ENV=test mocha --recursive --reporter mochawesome --compilers js:babel-register --timeout 10000 --require babel-polyfill tests",
+        "test:watch": "nodemon --exec NODE_ENV=test mocha --recursive --reporter spec --compilers js:babel-register --timeout 10000 --require babel-polyfill tests",
+        "coverage": "nyc --reporter=html --report-dir coverage npm run test"
+    },
+    "repository": {
+        "type": "git"
+    },
+    "engines": {
+        "node": "8.2.1",
+        "npm": "5.3.0"
+    },
+    "author": "fresco-dev",
+    "license": "MIT",
+    "dependencies": {
+        "body-parser": "1.17.1",
+        "bunyan": "^1.8.11",
+        "bunyan-middleware": "0.8.0",
+        "cors": "2.8.3",
+        "errorhandler": "1.5.0",
+        "express": "4.15.2",
+        "helmet": "3.5.0",
+        "lodash": "4.17.4",
+        "method-override": "2.3.8",
+        "morgan": "1.8.1",
+        "ramda": "0.24.1",
+        "request": "^2.81.0"
+    },
+    "devDependencies": {
+        "chai": "4.1.2",
+        "chai-http": "3.0.0",
+        "eslint": "4.7.2",
+        "mocha": "3.5.0",
+        "mocha-junit-reporter": "1.13.0",
+        "mochawesome": "2.3.0",
+        "nodemon": "1.12.1",
+        "nyc": "11.1.0"
+    }
+}
